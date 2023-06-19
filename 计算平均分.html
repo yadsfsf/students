@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#top{
+		margin: 0 auto;
+		height: 70px;
+		background-color: #00FFFF;
+	}
+	#top_logo{
+		background: url(swing3.gif) 50px 2px no-repeat;
+		color: #fff;
+		font-size: 46px;
+		font-weight: bold;
+		font-family: "楷体";
+		width: 400px;
+		float: left;
+		vertical-align: middle;
+		height: 65px;
+		line-height: 65px;
+		padding: 1px 1px 1px 90px;
+	}
+	#main{
+		height: 500px;
+		background-color: #AFEEEE;
+		text-align: center;
+	}
+	h3{
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		color:#000;
+	}
+	#resul{
+		height: 150px;
+		line-height: 150px;
+		font-size: 20px;
+		color: #000;
+	}
+	#footer{
+		height: 100px;
+		background-color: #303030;
+		font-size: 14px;
+		color: #cff;
+		text-align: center;
+		line-height: 100px;
+	}
+	</style>
+</head>
+<body>
+	<div id="top">
+		<div id="top_logo">
+		学生成绩统计系统
+		</div>
+	</div>
+	<div id="main">
+		<h3>请输入3个学生成绩</h3>
+		<form name="grade" id="f1">
+			<div><input type="text" name="number" class="mark"></div>
+			<div><input type="text" name="number" class="mark"></div>
+			<div><input type="text" name="number" class="mark"></div>
+			<!-- <submit onclick="del();">确认</submit> -->
+			<button type="button" onclick="del()">确认</button>
+			<button type="reset">重置</button>
+		</form>
+		<div id="result"></div>
+	</div>
+	<script>
+		function del(){
+			var f1=document.getElementById('f1');
+			var number=f1.getElementsByTagName('input');
+			var count=0;
+			var sum=0;
+			for(var i=0;i<3;i++){
+			  	sum=sum+parseInt(number[i].value);
+			  	if(parseInt(number[i].value)<60){
+			  		count=count+1;
+			  	}
+			  }
+			var avg=parseInt(sum/3);
+			document.getElementById('result').innerHTML="总分为："+sum+"<br />平均分为："+avg+"<br />成绩不及格的人数有："+count;
+		}
+	</script>
+</body>
+</html>
